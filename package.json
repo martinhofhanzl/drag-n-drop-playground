@@ -1,0 +1,14 @@
+{
+  "name": "drag-n-drop",
+  "version": "1.0.0",
+  "description": "Drop And Drop Playground - playing around with drag and drop on forms",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinhofhanzl/drag-n-drop-playground.git"
+  },
+  "author": "Martin Hofhanzl",
+  "bugs": {
+    "url": "https://github.com/martinhofhanzl/drag-n-drop-playground/issues"
+  },
+  "homepage": "https://github.com/martinhofhanzl/drag-n-drop-playground#readme"
+}
