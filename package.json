@@ -10,5 +10,8 @@
   "bugs": {
     "url": "https://github.com/martinhofhanzl/drag-n-drop-playground/issues"
   },
-  "homepage": "https://github.com/martinhofhanzl/drag-n-drop-playground#readme"
+  "homepage": "https://github.com/martinhofhanzl/drag-n-drop-playground#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
