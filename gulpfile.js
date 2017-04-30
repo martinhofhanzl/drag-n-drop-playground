@@ -2,6 +2,7 @@ var gulp = require('gulp')
 	concat = require('gulp-concat')
 	browserify = require('gulp-browserify')
 	sass = require('gulp-sass')
+	postcss = require('gulp-postcss');
 
 var jsSources = [
 	'components/scripts/modernizr-custom.js',
@@ -10,6 +11,7 @@ var jsSources = [
 gulp.task('sass', function() {
 	gulp.src('components/sass/*.scss')
 		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+		.pipe(postcss([ require('postcss-easy-import') ]))
 		.pipe(gulp.dest('builds/development/css/'))
 });
 
