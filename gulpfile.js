@@ -25,9 +25,15 @@ gulp.task('js', function() {
 		.pipe(connect.reload())
 });
 
+gulp.task('html', function() {
+	gulp.src('builds/development/*.html')
+		.pipe(connect.reload())
+})
+
 gulp.task('watch', function() {
 	gulp.watch(jsSources, ['js']);
 	gulp.watch('components/sass/*.scss', ['sass']);
+	gulp.watch('builds/development/*.html', ['html']);
 });
 
 gulp.task('connect', function() {
@@ -37,4 +43,4 @@ gulp.task('connect', function() {
 	})
 })
 
-gulp.task('default', ['sass', 'js', 'connect','watch']);
+gulp.task('default', ['sass', 'js', 'html', 'connect','watch']);
