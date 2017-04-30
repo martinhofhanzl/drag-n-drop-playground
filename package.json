@@ -13,6 +13,8 @@
   "homepage": "https://github.com/martinhofhanzl/drag-n-drop-playground#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1"
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.1",
+    "jquery": "^3.2.1"
   }
 }
