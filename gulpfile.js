@@ -1,7 +1,8 @@
-var gulp = require('gulp')
-	concat = require('gulp-concat')
-	browserify = require('gulp-browserify')
-	sass = require('gulp-sass')
+var gulp = require('gulp'),
+	concat = require('gulp-concat'),
+	browserify = require('gulp-browserify'),
+	sass = require('gulp-sass'),
+	connect = require('gulp-connect'),
 	postcss = require('gulp-postcss');
 
 var jsSources = [
@@ -13,6 +14,7 @@ gulp.task('sass', function() {
 		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
 		.pipe(postcss([ require('postcss-easy-import') ]))
 		.pipe(gulp.dest('builds/development/css/'))
+		.pipe(connect.reload())
 });
 
 gulp.task('js', function() {
@@ -20,11 +22,19 @@ gulp.task('js', function() {
 		.pipe(concat('script.js'))
 		.pipe(browserify())
 		.pipe(gulp.dest('builds/development/js/'))
+		.pipe(connect.reload())
 });
 
 gulp.task('watch', function() {
 	gulp.watch(jsSources, ['js']);
 	gulp.watch('components/sass/*.scss', ['sass']);
+});
+
+gulp.task('connect', function() {
+	connect.server({
+		root: 'builds/development/',
+		livereload: true
+	})
 })
 
-gulp.task('default', ['sass', 'js', 'watch']);
+gulp.task('default', ['sass', 'js', 'connect','watch']);
