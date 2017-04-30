@@ -5,9 +5,7 @@ var gulp = require('gulp'),
 	connect = require('gulp-connect'),
 	postcss = require('gulp-postcss');
 
-var jsSources = [
-	'components/scripts/modernizr-custom.js',
-	'components/scripts/script.js'];
+var jsSources = ['components/scripts/script.js'];
 
 gulp.task('sass', function() {
 	gulp.src('components/sass/*.scss')

@@ -1,4 +1,5 @@
-var $ = require('jquery');
+$ = jQuery = require('jquery');
+var bootstrap = require('bootstrap');
 
 var dragSrcEl = null;
 
@@ -56,6 +57,10 @@ function handleDragEnd(e) {
   [].forEach.call(cols, function (col) {
     col.classList.remove('over');
   });
+
+  [].forEach.call(inputs, function (col) {
+    col.classList.remove('over');
+  });
 }
 
 var cols = document.querySelectorAll('#columns .column');
@@ -67,3 +72,21 @@ var cols = document.querySelectorAll('#columns .column');
   col.addEventListener('drop', handleDrop, false);
   col.addEventListener('dragend', handleDragEnd, false);
 });
+
+var inputs = document.querySelectorAll('form .input');
+[].forEach.call(inputs, function(col) {
+  col.addEventListener('dragstart', handleDragStart, false);
+  col.addEventListener('dragenter', handleDragEnter, false);
+  col.addEventListener('dragover', handleDragOver, false);
+  col.addEventListener('dragleave', handleDragLeave, false);
+  col.addEventListener('drop', handleDrop, false);
+  col.addEventListener('dragend', handleDragEnd, false);
+});
+
+$(document).ready(function() {
+	$('#createNewForm').click(function(e) {
+		e.preventDefault();
+		
+		$('form').clone().appendTo('div.place');
+	})
+})
