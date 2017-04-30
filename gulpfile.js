@@ -19,3 +19,10 @@ gulp.task('js', function() {
 		.pipe(browserify())
 		.pipe(gulp.dest('builds/development/js/'))
 });
+
+gulp.task('watch', function() {
+	gulp.watch(jsSources, ['js']);
+	gulp.watch('components/sass/*.scss', ['sass']);
+})
+
+gulp.task('default', ['sass', 'js', 'watch']);
